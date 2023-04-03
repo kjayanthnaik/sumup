@@ -14,3 +14,4 @@ scipy>=1.7.3
 tqdm<=4.65.0
 Werkzeug<=2.2.3
 zipp<=3.15.0
+gunicorn
