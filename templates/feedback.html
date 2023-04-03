@@ -1,0 +1,87 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/design.css">
+
+  
+    <style>
+        body{
+            background-color: rgb(162, 150, 152);
+        }
+.fb{
+    max-width:350px;
+    margin:auto;
+    border-radius:5px;
+    background:#99b5c3;
+    padding:20px;
+   }
+   input[type=text], select{
+    width:100%;
+    padding:12px 20px;
+    margin:8px 0;
+    display:inline-block;
+    border:1px solid #ccc;
+    border-radius:4px;
+    box-sizing:border-box;
+   }
+   button{
+    width:100%;
+    background:teal;
+    color:white;
+    padding:14px 20px;
+    margin:8px 0;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+   }
+   
+   </style>
+   </head>
+   <body>
+    <div class="fb">
+        <h1 style="text-align: center;font-family: Verdana;color: rgb(96, 85, 85);">Feedback Form</h1>
+        <form action="mailto:Sumup@gmail.com?subject=feedback" method="post" enctype="text/plain">
+         <label for ="name"> Full Name</label>
+         <input type ="text" name ="FullName">
+         <label for ="Email"> Email</label>
+         <input type ="text" name="email">
+         
+         <p>Would you recommend this to other?</p>
+<table>
+         <tr>
+            <td><label>Yes</label></td>
+            <td> <input type ="radio" name ="would you recommend this to others?" value="yes"> </td>
+         </tr>
+         <tr>
+            <td><label>No </label></td>
+                <td><input type ="radio" name ="would you recommend this to others?" value="No"></td>
+         </tr>
+       
+      </table>  
+         <label for ="story">Review:</label>
+         <textarea name="Feedback" rows="5" cols="40"></textarea>
+        <br><br>
+        <a href="{{url_for('home')}}">
+       <button  class="b" >Submit</button>
+       </a>
+        </form> 
+
+  
+
+    </div>
+    <div class="im">
+        <a href="{{url_for('home')}}">
+        <img src="/static/open.jpg"  height=50px width=70px alt=logo/>
+    </a>
+        <h1>SuMuP</h1>
+        
+    </div>
+    <footer class="background">
+  
+        <p class="text-footer">
+          &copy; 2023 SumUp. All rights reserved.
+      </p>
+      
+      </footer>
+   </body>
+   </html>
+   

@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/design.css">
+        <link rel="stylesheet" href="design.css">
+    </head>
+    <body>
+        <div class="f">
+        <div class="fi">
+        <form action="{{url_for('pre')}}" method="post" >
+            <label  for="fname">enter the number:</label>
+            <input  type="text" id="fname" name="lines"><br>
+            <label for="intext">enter the input text:</label>
+            <br>
+            <textarea name="input" rows="20"cols="100"></textarea>
+            <br>
+            <button type="submit"  class="b">Summarize</button>
+        </form>
+        
+            <div class="im">
+                <a href="{{url_for('home')}}">
+                <img src="/static/open.jpg"  height=50px width=70px alt=logo/>
+            </a>
+                <h1>SuMuP</h1>
+                
+            </div>
+        </div>
+        
+        <div class="fo">
+            <label for="outext"><b>Summary:</b></label>
+            <textarea name="ou" rows="15" cols="100">{{output}}</textarea>
+        </div>
+        </div>
+        <footer class="background">
+  
+            <p class="text-footer">
+              &copy; 2023 SumUp. All rights reserved.
+          </p>
+          
+          </footer>
+    </body>
+</html>
