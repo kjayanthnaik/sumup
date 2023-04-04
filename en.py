@@ -2,8 +2,8 @@ from flask import Flask,request,render_template
 import pickle
 
 import nltk
-#nltk.download('punkt')
-#nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('stopwords')
 import numpy as np
 #import pandas as pd
 import nltk
