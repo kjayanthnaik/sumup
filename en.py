@@ -47,7 +47,15 @@ def pre():
     for line in f:
         values = line.split()
         word = values[0]
-        coefs = np.asarray(values[1:], dtype=np.float32)
+        numeric_values = []
+        for value in values[1:]:
+    	    try:
+        	    numeric_value = float(value)
+        	    numeric_values.append(numeric_value)
+    	    except ValueError:
+        	    # skip non-numeric values
+        	    pass
+        coefs = np.asarray(numeric_values, dtype=np.float32)
         word_embeddings[word] = coefs
     f.close()
     
