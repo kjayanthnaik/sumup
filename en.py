@@ -10,7 +10,7 @@ import nltk
 import re
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
-#from gensim.models import Word2Vec
+from gensim.models import Word2Vec
 from scipy import spatial
 import networkx as nx
 
@@ -43,7 +43,7 @@ def pre():
 
     sentence_tokens=[[words for words in sentence.split(' ') if words not in stop_words] for sentence in sentences_clean]
     word_embeddings = {}
-    f = open('glove.6B.100d.txt', encoding='utf-8')
+    '''f = open('glove.6B.100d.txt', encoding='utf-8')
     for line in f:
         values = line.split()
         word = values[0]
@@ -65,7 +65,12 @@ def pre():
             v = sum([word_embeddings.get(w, np.zeros((100,))) for w in i])/(len(i)+0.001)
         else:
             v = np.zeros((100,))
-        sentence_embeddings.append(np.array(v))
+        sentence_embeddings.append(np.array(v))'''
+    w2v=Word2Vec(sentence_tokens,size=1,min_count=1,iter=1000)
+    
+    sentence_embeddings=[[w2v[word][0] for word in words] for words in sentence_tokens]
+    max_len=max([len(tokens) for tokens in sentence_tokens])
+    sentence_embeddings=[np.pad(embedding,(0,max_len-len(embedding)),'constant') for embedding in sentence_embeddings]
 
     sentence_embeddings=np.array(sentence_embeddings)
     similarity_matrix = np.zeros([len(sentence_tokens), len(sentence_tokens)])
